@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Image Placeholder Template</title>
+     <link rel="stylesheet" href="./static/layui/css/layui.css" media="all">
+    <style>
+        .container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin-top: 50px;
+        }
+        .image-placeholder {
+          width: 800px; /* Adjust as needed */
+          height: 540px; /* Adjust to keep the aspect ratio square */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 10px;
+        }
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+        .button-container {
+          text-align: center;
+          margin-top: 20px;
+        }
+        button {
+          padding: 10px 20px;
+          margin: 0 10px;
+        }
+        h1 {
+    color: lightpink;        /* 文本颜色设置为浅粉红 */
+    font-family: 'Arial', sans-serif; /* 使用 Arial 字体 */
+    font-size: 20px;         /* 字体大小 */
+    text-align: center;      /* 文本居中对齐 */
+    text-shadow: 1px 1px 2px #ff99cc; /* 文本阴影，增加深度感 */
+    padding: 10px;           /* 内边距 */
+    margin-top: 20px;        /* 顶部外边距 */
+    border-bottom: 3px solid #ff99cc; /* 底部边框，淡粉红色 */
+    letter-spacing: 2px;     /* 字符间距 */
+}
+
+/* 可选的背景样式 */
+body {
+    background-color: #fff0f5; /* 整个页面背景设置为浅淡粉色 */
+}
+button {
+    color: #ff66cc;          /* 按钮内文字颜色为粉色调 */
+    background-color: lightpink; /* 按钮背景色设为浅粉红 */
+    font-family: 'Arial', sans-serif; /* 使用 Arial 字体 */
+    font-size: 16px;         /* 字体大小 */
+    padding: 10px 20px;      /* 按钮内边距 */
+    border: none;            /* 无边框 */
+    border-radius: 5px;      /* 边角圆润 */
+    text-shadow: 1px 1px 1px #ffffff; /* 文字阴影，增加层次感 */
+    box-shadow: 2px 2px 5px #ff99cc; /* 按钮阴影，增加深度感 */
+    cursor: pointer;         /* 鼠标悬停时显示指针 */
+    transition: all 0.3s ease; /* 过渡效果，增加交互感 */
+}
+
+button:hover {
+    background-color: #ff99cc; /* 鼠标悬停时背景颜色加深 */
+    color: #ffffff;            /* 鼠标悬停时文字颜色变为白色 */
+}
+    </style>
+</head>
+<body>
+<div id="particles-js">
+<ul class="layui-nav " style="background-color: lightpink">
+  <li class="layui-nav-item"><a href="/">Home Page</a></li>
+  <li class="layui-nav-item"><a href="/upload">Result Page</a></li>
+</ul>
+<div class="F_container">
+    <div class="container">
+        <H1>
+
+Skin cancer segmentation visualization system
+        </H1>
+    </div>
+    <div class="container">
+
+     <form action="/return_home_page" method="post">
+     <input type="submit" value="Go to Page">
+</form>
+
+
+    </div>
+    <div class="container">
+
+        <div class="image-placeholder" style="display: flex; flex-direction: column;">
+            <!-- Replace with your image -->
+            <div class="image_title" style="margin-bottom:10px"><button type="button" class="layui-btn layui-btn-primary layui-btn-radius">Original Image:</button></div>
+            <div class="image"><img src='{{save_path}}' alt="" style="width: 500px; height: auto;"></div>
+
+        </div>
+        <div class="image-placeholder" style="display: flex; flex-direction: column;">
+            <!-- Replace with your image -->
+            <div class="image_title" style="margin-bottom:10px"> <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">Segmentation results:</button></div>
+            <div class="image"><img src="{{predicet_save_path}}" alt="" style="width: 500px; height: auto;"></div>
+
+        </div>
+
+
+    </div>
+    <div class="container">
+        <H1 >
+            Metrics:{{res}}
+        </H1>
+    </div>
+</div>
+</div>
+<script src="./static/particles.js-master/particles.js" charset="utf-8"></script>
+<script src="./static/particles.js-master/app.js" charset="utf-8"></script>
+</body>
+</html>

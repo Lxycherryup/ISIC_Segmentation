@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>结肠息肉分割可视化系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./static/layui/css/layui.css" media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<style>
+        .file-upload{
+            display: inline-block; 				/* 块元素转换为行内元素 */
+            position: relative; 				/* 父元素使用相对定位, 方便子元素进行绝对定位 */
+            width: 100px; 						/* 设置元素宽度, 子元素要保持一致 */
+            height: 30px; 						/* 设置元素高度,子元素要保持一致 */
+            line-height: 30px; 					/* 保证label标签内容垂直居中 */
+            text-align: center; 				/* 保证label标签内容水平居中 */
+            border-radius: 4px; 				/* 圆角样式 */
+
+
+        }
+        .file-upload input{
+            position: absolute; 				/* 子元素绝对定位 */
+            top:0;
+            left:0;
+            width: 100px;
+            height: 40px;
+            opacity: 0; 						/* 设置透明 */
+            margin-top: 20px;
+        }
+</style>
+
+<body>
+<div id="particles-js">
+<ul class="layui-nav" style="background-color:lightpink">
+    <li class="layui-nav-item"><a href="/">Home Page</a></li>
+    <li class="layui-nav-item"><a href="/upload">Result Page</a></li>
+</ul>
+<br>
+
+
+<div class="F_container">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6">
+            <div class="layui-panel">
+                <div class="panel_item"  style="display: flex; justify-content: center; align-items: center;padding: 50px;" >
+                    <img src="./static/model.jpg"  style="height:600px;width:600px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md6">
+            <div class="layui-panel">
+                <div style="padding: 50px;">
+                    <div class="container">
+                        <form method="POST" action="/uploader" enctype="multipart/form-data">
+                            <div class="file-upload" style="border: 1px solid deepskyblue;color: skyblue;">
+                                <label>Select Image</label>
+                                <input type="file"
+                                       name="image"
+                                       accept="image/*">
+                            </div>
+
+                            <div class="file-upload" style="margin-left:20px;border: 1px solid green;">
+                                <label>Upload Image</label>
+                                <input
+                                        type="submit" value="上传图片">
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<script src="./static/particles.js-master/particles.js" charset="utf-8"></script>
+<script src="./static/particles.js-master/app.js" charset="utf-8"></script>
+<script src="./static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
+<script>
+    layui.use('element', function(){
+      var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+      //监听导航点击
+      element.on('nav(demo)', function(elem){
+        //console.log(elem)
+        layer.msg(elem.text());
+      });
+    });
+</script>
+
+</body>
+</html>
+
